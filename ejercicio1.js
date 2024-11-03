@@ -1,20 +1,14 @@
 const ordenarPalabras = () => {
-  const palabras = [];
-  let palabra;
-
-  while (
-    (palabra = prompt('Introduce una palabra:')) !== null &&
-    palabra !== ''
-  ) {
-    palabras.push(palabra.toLowerCase());
-  }
+  const palabras = recogerPalabras();
 
   const ordenadas = [...new Set(palabras)].sort((a, b) =>
-    b.localeCompare(a, 'es')
+    b.localeCompare(a, "es")
   );
 
-  document.querySelector('.palabras').innerHTML = `${ordenadas.join('<br>')}`;
+  const resultadoHTML = ordenadas.join("<br>");
+
+  mostrarResultado(resultadoHTML);
 };
 
-boton = document.querySelector('.boton');
-boton.addEventListener('click', ordenarPalabras);
+const boton = document.querySelector(".boton");
+boton.addEventListener("click", ordenarPalabras);
